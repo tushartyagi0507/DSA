@@ -17,3 +17,19 @@ var maxProfit = function(prices) {
     return maxProfit
 };
 
+
+
+// function maxProfit(prices) {
+//     let minPrice = Infinity;
+//     let maxProfit = 0;
+
+//     for (let price of prices) {
+//         if (price < minPrice) {
+//             minPrice = price; // update the lowest price
+//         } else {
+//             maxProfit = Math.max(maxProfit, price - minPrice); // update the max profit
+//         }
+//     }
+
+//     return maxProfit;
+// }
