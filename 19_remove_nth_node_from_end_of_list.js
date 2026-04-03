@@ -12,28 +12,24 @@
  */
 
 var removeNthFromEnd = function(head, n) {
-    let curr = head;
-    let length = 0;
+  let dummy = new ListNode()
+  dummy.next = head;
+  let first = dummy;
 
-    let dummy = new ListNode(0);
-    dummy.next = head;
+    // start the seocnd pointer from the nth distance from the first one
+  for(let i =0; i < n; i++){
+    first = first.next
+  }
 
-    // calculate length
-    while(curr){
-        curr = curr.next;
-        length++;
-    }
+  // move both the pointers till the first pointer reaches the end node 
+  let second = dummy;
+  while(first.next){
+    first = first.next;
+    second = second.next;
+  }
 
-    // position before node to delete
-    let pos = length - n;
-    let prev = dummy;
+  // second is your prev node to the node that needs to be deleted
+  second.next = second.next.next;
 
-    for (let i = 0; i < pos; i++){
-        prev = prev.next;
-    }
-
-    // delete node
-    prev.next = prev.next.next;
-
-    return dummy.next;
+  return dummy.next
 };
