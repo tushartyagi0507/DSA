@@ -1,14 +1,20 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
 var removeOuterParentheses = function(s) {
-    let level = -1;
-    let ans = "";
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === "(") {
-            ++level;
-            ans += (level ? s[i] : "");
+    let result = "";
+    let depth = 0;
+
+    for (let char of s) {
+        if (char === '(') {
+            if (depth > 0) result += char;
+            depth++;
         } else {
-            ans += (level ? s[i] : "");
-            --level;
+            depth--;
+            if (depth > 0) result += char;
         }
     }
-    return ans;
+
+    return result;
 };
